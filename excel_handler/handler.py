@@ -2,7 +2,7 @@
 import xlrd
 import xlsxwriter
 import datetime
-from fields import Field
+from .fields import Field
 
 from collections import namedtuple
 
@@ -14,7 +14,7 @@ class FieldNotFound(Exception):
 class ReapeatedColumn(Exception):
     pass
 
-RowError = namedtuple('RowError', 'row, row_data, error, field_name')
+RowError = namedtuple('RowError', 'row, row_data, error as field_name')
 
 
 class ExcelHandlerMetaClass(type):
@@ -240,7 +240,7 @@ class ExcelHandler():
                                     )
                                 )
                             else:
-                                print msg
+                                print(msg)
                             continue_while = True
                         break
 

@@ -46,16 +46,16 @@ class Field(object):
             except:
                 try:
                     return self.choices_inv[value]
-                except ValueError, error:
+                except ValueError as error:
                     error.args += (self.name,)
                     raise ValueError(error)
-                except KeyError, error:
+                except KeyError as error:
                     error.args += (self.name,)
                     raise KeyError(error)
 
         try:
             return self.cast_method(value)
-        except ValueError, error:
+        except ValueError as error:
             error.args += (self.name, value)
             raise ValueError(error)
 
@@ -69,7 +69,7 @@ class Field(object):
         if self.choices:
             try:
                 value = self.choices[value]
-            except KeyError, error:
+            except KeyError as error:
                 if value is not None:
                     raise KeyError(error)
 
