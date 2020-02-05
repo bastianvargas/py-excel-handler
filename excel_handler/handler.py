@@ -14,7 +14,7 @@ class FieldNotFound(Exception):
 class ReapeatedColumn(Exception):
     pass
 
-RowError = namedtuple('RowError', 'row, row_data, error as field_name')
+RowError = namedtuple('RowError', 'row, row_data, error, field_name')
 
 
 class ExcelHandlerMetaClass(type):
